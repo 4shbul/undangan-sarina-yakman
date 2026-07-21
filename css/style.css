@@ -408,6 +408,26 @@ input, textarea { font-family: inherit; }
   color: var(--white);
 }
 
+.opening-guest {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+  margin-bottom: 16px;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.opening-guest span {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: var(--white);
+  text-transform: none;
+}
+
 .opening-date {
   font-family: var(--font-serif);
   font-size: 1.1rem;
@@ -681,6 +701,21 @@ input, textarea { font-family: inherit; }
   color: var(--gray-dark);
   line-height: 1.8;
   margin-bottom: 12px;
+}
+
+.salam-guest {
+  background: linear-gradient(135deg, rgba(200,169,91,0.08), rgba(200,169,91,0.03));
+  border: 1px solid rgba(200,169,91,0.2);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-top: 16px;
+  font-style: italic;
+}
+
+.salam-guest strong {
+  color: var(--gold);
+  font-weight: 600;
+  font-style: normal;
 }
 
 /* ========================================

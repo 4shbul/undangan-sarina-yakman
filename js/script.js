@@ -25,6 +25,27 @@
   const $galleryItems = document.querySelectorAll('.gallery-item');
 
   /* ========================================
+     GUEST NAME FROM URL
+     ======================================== */
+  var urlParams = new URLSearchParams(window.location.search);
+  var guestName = urlParams.get('to');
+  if (guestName) {
+    var $salamGuest = document.getElementById('salamGuest');
+    var $guestNameDisplay = document.getElementById('guestNameDisplay');
+    if ($salamGuest && $guestNameDisplay) {
+      $salamGuest.style.display = 'block';
+      $guestNameDisplay.textContent = guestName;
+    }
+    var $openingGuest = document.getElementById('openingGuest');
+    var $openingGuestName = document.getElementById('openingGuestName');
+    if ($openingGuest && $openingGuestName) {
+      $openingGuest.style.display = 'block';
+      $openingGuestName.textContent = guestName;
+    }
+    document.title = 'Undangan untuk ' + guestName + ' - Sarina & Yakman';
+  }
+
+  /* ========================================
      LOADING SCREEN
      ======================================== */
   function hideLoadingScreen() {
@@ -442,10 +463,10 @@
     var message = encodeURIComponent(
       'Assalamu\'alaikum Warahmatullahi Wabarakaatuh\n\n' +
       'Kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami:\n\n' +
-      '💒 Sarina Abdullah, S.T & Yakman Suma\n\n' +
-      '📅 Senin, 10 Agustus 2026\n' +
-      '🕙 Akad: 10.00 WITA | Resepsi: 19.00 WITA\n' +
-      '📍 Dusun II, Desa Tanggaruru\n\n' +
+      'Sarina Abdullah, S.T & Yakman Suma\n\n' +
+      'Senin, 10 Agustus 2026\n' +
+      'Akad: 10.00 WITA | Resepsi: 19.00 WITA\n' +
+      'Dusun II, Desa Tanggaruru\n\n' +
       'Lihat undangan lengkap di:\n' +
       invitationUrl
     );
