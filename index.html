@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan - Sarina & Yakman</title>
+  <meta name="description" content="Undangan Pernikahan Digital Premium - Sarina Abdullah, S.T & Yakman Suma">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ==================== LOADING SCREEN ==================== -->
+  <div id="loading-screen">
+    <div class="loader-content">
+      <div class="loader-ring"></div>
+      <p class="loader-text">Memuat Undangan...</p>
+    </div>
+  </div>
+
+  <!-- ==================== OPENING SCREEN ==================== -->
+  <div id="opening-screen">
+    <div class="opening-bg"></div>
+    <div class="floating-flowers opening-flowers">
+      <span class="flower flower-1">&#10047;</span>
+      <span class="flower flower-2">&#10048;</span>
+      <span class="flower flower-3">&#10047;</span>
+      <span class="flower flower-4">&#10048;</span>
+      <span class="flower flower-5">&#10047;</span>
+      <span class="flower flower-6">&#10048;</span>
+    </div>
+    <div class="opening-content">
+      <div class="ornament-top">&#10053;</div>
+      <p class="opening-subtitle">The Wedding of</p>
+      <h1 class="opening-name">
+        <span class="name-bride">Sarina</span>
+        <span class="name-amp">&</span>
+        <span class="name-groom">Yakman</span>
+      </h1>
+      <div class="ornament-divider">
+        <span></span><span class="divider-diamond">&#9830;</span><span></span>
+      </div>
+      <p class="opening-date">10 . 08 . 2026</p>
+      <button id="btn-open-invitation" class="btn-gold">
+        <span>Buka Undangan</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <div class="ornament-bottom">&#10053;</div>
+    </div>
+  </div>
+
+  <!-- ==================== MUSIC CONTROL ==================== -->
+  <div id="music-control">
+    <button id="btn-music" class="music-btn" aria-label="Toggle music">
+      <svg class="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <svg class="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+    </button>
+    <div class="music-bars">
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main id="main-content" style="display:none;">
+
+    <!-- ========== HERO SECTION ========== -->
+    <section id="hero" class="section hero-section">
+      <div class="hero-parallax"></div>
+      <div class="hero-overlay"></div>
+      <div class="floating-flowers hero-flowers">
+        <span class="flower flower-1">&#10047;</span>
+        <span class="flower flower-2">&#10048;</span>
+        <span class="flower flower-3">&#10047;</span>
+        <span class="flower flower-4">&#10048;</span>
+      </div>
+      <div class="hero-content aos" data-aos="fade-up">
+        <p class="hero-subtitle">The Wedding of</p>
+        <h1 class="hero-names">
+          <span class="name-bride">Sarina</span>
+          <span class="name-amp">&</span>
+          <span class="name-groom">Yakman</span>
+        </h1>
+        <div class="ornament-divider">
+          <span></span><span class="divider-diamond">&#9830;</span><span></span>
+        </div>
+        <p class="hero-date-big">10 Agustus 2026</p>
+
+        <!-- COUNTDOWN -->
+        <div id="countdown" class="countdown-container">
+          <div class="countdown-item">
+            <span id="countdown-days" class="countdown-number">0</span>
+            <span class="countdown-label">Hari</span>
+          </div>
+          <div class="countdown-item">
+            <span id="countdown-hours" class="countdown-number">0</span>
+            <span class="countdown-label">Jam</span>
+          </div>
+          <div class="countdown-item">
+            <span id="countdown-minutes" class="countdown-number">0</span>
+            <span class="countdown-label">Menit</span>
+          </div>
+          <div class="countdown-item">
+            <span id="countdown-seconds" class="countdown-number">0</span>
+            <span class="countdown-label">Detik</span>
+          </div>
+        </div>
+
+        <a href="#salam" class="btn-scroll-down">
+          <span>Scroll Down</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========== SALAM PEMBUKA ========== -->
+    <section id="salam" class="section salam-section">
+      <div class="container">
+        <div class="salam-content aos" data-aos="zoom-in">
+          <div class="ornament-icon">&#9753;</div>
+          <h2 class="salam-arabic">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</h2>
+          <div class="ornament-divider small">
+            <span></span><span class="divider-diamond">&#9830;</span><span></span>
+          </div>
+          <p class="salam-text">Assalamu'alaikum Warahmatullahi Wabarakaatuh</p>
+          <p class="salam-body">Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan.</p>
+          <p class="salam-body">Ya Allah perkenankanlah putra-putri kami:</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MEMPELAI / COUPLE ========== -->
+    <section id="mempelai" class="section couple-section">
+      <div class="container">
+        <h2 class="section-title aos" data-aos="fade-up">Mempelai</h2>
+        <div class="couple-wrapper">
+          <!-- Groom -->
+          <div class="couple-card aos" data-aos="fade-right">
+            <div class="couple-photo-frame">
+              <img src="assets/img/laki-laki.png" alt="Yakman Suma" class="couple-photo-img">
+              <div class="photo-frame-border"></div>
+            </div>
+            <h3 class="couple-name">Yakman</h3>
+            <p class="couple-fullname">Yakman Suma</p>
+            <p class="couple-parent">Putra dari</p>
+            <p class="couple-parents">Kel. Alm. Suma / Almh. Raehana</p>
+          </div>
+
+          <!-- Heart Center -->
+          <div class="couple-center aos" data-aos="zoom-in">
+            <div class="couple-heart">
+              <svg width="50" height="50" viewBox="0 0 24 24" fill="#C8A95B"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </div>
+          </div>
+
+          <!-- Bride -->
+          <div class="couple-card aos" data-aos="fade-left">
+            <div class="couple-photo-frame">
+              <img src="assets/img/perempuan.png" alt="Sarina Abdullah" class="couple-photo-img">
+              <div class="photo-frame-border"></div>
+            </div>
+            <h3 class="couple-name">Sarina</h3>
+            <p class="couple-fullname">Sarina Abdullah, S.T</p>
+            <p class="couple-parent">Putri dari</p>
+            <p class="couple-parents">Kel. Nasir Abdullah / Ruhani</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ACARA / EVENT ========== -->
+    <section id="acara" class="section event-section">
+      <div class="container">
+        <h2 class="section-title aos" data-aos="fade-up">Rangkaian Acara</h2>
+        <div class="event-wrapper">
+          <!-- Akad Nikah -->
+          <div class="event-card glass-card aos" data-aos="fade-right">
+            <div class="event-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C8A95B" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3 class="event-title">Akad Nikah</h3>
+            <div class="ornament-divider small">
+              <span></span><span class="divider-diamond">&#9830;</span><span></span>
+            </div>
+            <div class="event-details">
+              <p><strong>Hari:</strong> Senin</p>
+              <p><strong>Jam:</strong> 10.00 WITA</p>
+            </div>
+          </div>
+
+          <!-- Resepsi -->
+          <div class="event-card glass-card aos" data-aos="fade-left">
+            <div class="event-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C8A95B" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h3 class="event-title">Resepsi</h3>
+            <div class="ornament-divider small">
+              <span></span><span class="divider-diamond">&#9830;</span><span></span>
+            </div>
+            <div class="event-details">
+              <p><strong>Hari:</strong> Senin</p>
+              <p><strong>Tanggal:</strong> 10 Agustus 2026</p>
+              <p><strong>Jam:</strong> 19.00 WITA</p>
+              <p><strong>Keterangan:</strong> (Malam Selasa)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lokasi -->
+        <div class="location-card glass-card aos" data-aos="fade-up">
+          <div class="location-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C8A95B" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </div>
+          <h3 class="location-title">Lokasi</h3>
+          <p class="location-address">Dusun II Desa Tanggaruru</p>
+          <a href="https://maps.google.com" target="_blank" class="btn-gold btn-location">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Lihat Lokasi</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== GALERI ========== -->
+    <section id="galeri" class="section gallery-section">
+      <div class="container">
+        <h2 class="section-title aos" data-aos="fade-up">Galeri</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item aos" data-aos="fade-up" data-index="0">
+            <img src="assets/img/1.jpeg" alt="Galeri 1" loading="lazy">
+          </div>
+          <div class="gallery-item aos" data-aos="fade-up" data-index="1">
+            <img src="assets/img/2.jpeg" alt="Galeri 2" loading="lazy">
+          </div>
+          <div class="gallery-item aos" data-aos="fade-up" data-index="2">
+            <img src="assets/img/3.jpeg" alt="Galeri 3" loading="lazy">
+          </div>
+          <div class="gallery-item aos" data-aos="fade-up" data-index="3">
+            <img src="assets/img/4.JPG.jpeg" alt="Galeri 4" loading="lazy">
+          </div>
+          <div class="gallery-item aos" data-aos="fade-up" data-index="4">
+            <img src="assets/img/5.jpeg" alt="Galeri 5" loading="lazy">
+          </div>
+          <div class="gallery-item aos" data-aos="fade-up" data-index="5">
+            <img src="assets/img/6.jpeg" alt="Galeri 6" loading="lazy">
+          </div>
+          <div class="gallery-item aos" data-aos="fade-up" data-index="6">
+            <img src="assets/img/7.jpeg" alt="Galeri 7" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== LIGHTBOX ========== -->
+    <div id="lightbox" class="lightbox">
+      <button class="lightbox-close" aria-label="Close">&times;</button>
+      <button class="lightbox-prev" aria-label="Previous">&#10094;</button>
+      <button class="lightbox-next" aria-label="Next">&#10095;</button>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="Galeri">
+        <p class="lightbox-caption"><span id="lightbox-counter">1/7</span></p>
+      </div>
+    </div>
+
+    <!-- ========== HADIAH / GIFT ========== -->
+    <section id="gift" class="section gift-section">
+      <div class="container">
+        <h2 class="section-title aos" data-aos="fade-up">Hadiah Pernikahan</h2>
+        <p class="gift-subtitle aos" data-aos="fade-up">Tanpa mengurangi rasa hormat, bagi Bapak/Ibu/Saudara/i yang ingin memberikan tanda kasih kepada kedua mempelai, dapat melalui:</p>
+        <div class="gift-wrapper">
+          <!-- Amplop Digital -->
+          <div class="gift-card glass-card aos" data-aos="fade-right">
+            <div class="gift-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C8A95B" stroke-width="1.5"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M12 6v14"/></svg>
+            </div>
+            <h3 class="gift-title">Amplop Digital</h3>
+            <div class="ornament-divider small">
+              <span></span><span class="divider-diamond">&#9830;</span><span></span>
+            </div>
+            <p class="gift-label">Bank BRI</p>
+            <p class="gift-number">739201004353530</p>
+            <p class="gift-name">a.n Sarina Abdullah</p>
+            <button class="btn-gold btn-copy" data-copy="123456789012">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              <span>Salin Nomor</span>
+            </button>
+          </div>
+
+          <!-- Kirim Hadiah -->
+          <div class="gift-card glass-card aos" data-aos="fade-left">
+            <div class="gift-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C8A95B" stroke-width="1.5"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>
+            </div>
+            <h3 class="gift-title">Kirim Hadiah</h3>
+            <div class="ornament-divider small">
+              <span></span><span class="divider-diamond">&#9830;</span><span></span>
+            </div>
+            <p class="gift-desc">Dusun II Desa Tanggaruru</p>
+            <p class="gift-desc-small">Kabupaten Kolaka Utara, Sulawesi Tenggara</p>
+            <a href="https://maps.google.com" target="_blank" class="btn-gold btn-location">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Lihat Lokasi</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DOA / AYAT ========== -->
+    <section id="doa" class="section doa-section">
+      <div class="container">
+        <div class="doa-content aos" data-aos="zoom-in">
+          <div class="doa-ornament">&#9753;</div>
+          <blockquote class="doa-text">
+            "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan pasangan-pasangan untukmu..."
+          </blockquote>
+          <p class="doa-source">(QS Ar-Rum: 21)</p>
+          <div class="doa-ornament">&#9753;</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== UCAPAN / GUEST BOOK ========== -->
+    <section id="ucapan" class="section guestbook-section">
+      <div class="container">
+        <h2 class="section-title aos" data-aos="fade-up">Kirim Ucapan & Doa</h2>
+
+        <!-- Form -->
+        <div class="guestbook-form glass-card aos" data-aos="fade-up">
+          <form id="guestbook-form">
+            <div class="form-group">
+              <label for="guest-name">Nama</label>
+              <input type="text" id="guest-name" placeholder="Masukkan nama Anda" required>
+            </div>
+            <div class="form-group">
+              <label for="guest-message">Ucapan & Doa</label>
+              <textarea id="guest-message" rows="4" placeholder="Tulis ucapan dan doa untuk kedua mempelai..." required></textarea>
+            </div>
+            <button type="submit" class="btn-gold btn-submit">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              <span>Kirim Ucapan</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Daftar Ucapan -->
+        <div class="guestbook-list" id="guestbook-list">
+          <p class="guestbook-empty" id="guestbook-empty">Belum ada ucapan. Jadilah yang pertama!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== HORMAT KAMI ========== -->
+    <section id="hormat" class="section family-section">
+      <div class="container">
+        <h2 class="section-title aos" data-aos="fade-up">Hormat Kami Yang Mengundang</h2>
+        <div class="family-wrapper">
+          <!-- Keluarga Mempelai Pria -->
+          <div class="family-card glass-card aos" data-aos="fade-right">
+            <h3 class="family-title">Keluarga Mempelai Pria</h3>
+            <div class="ornament-divider small">
+              <span></span><span class="divider-diamond">&#9830;</span><span></span>
+            </div>
+            <p class="family-main">Kel. Alm. Suma / Almh. Raehana</p>
+          </div>
+
+          <!-- Keluarga Mempelai Wanita -->
+          <div class="family-card glass-card aos" data-aos="fade-left">
+            <h3 class="family-title">Keluarga Mempelai Wanita</h3>
+            <div class="ornament-divider small">
+              <span></span><span class="divider-diamond">&#9830;</span><span></span>
+            </div>
+            <p class="family-main">Kel. Nasir Abdullah / Ruhani</p>
+          </div>
+        </div>
+
+        <!-- Turut Mengundang -->
+        <div class="invited-section aos" data-aos="fade-up">
+          <h3 class="invited-title">Turut Mengundang:</h3>
+          <div class="invited-list">
+            <span>Darlis Kalimu, S.E (Camat Purehu)</span>
+            <span>Taslim, S.Pd (Camat Pakue Tengah)</span>
+            <span>Akmal Sali, S.H (Kades Tanggaruru)</span>
+            <span>Haerul Akbar (Kades Pasampang)</span>
+            <span>Samsir, S.T., M.Si (Anggota DPRD Kolaka Utara)</span>
+            <span>H. Wisbahuddin (Kades Sapoiha)</span>
+            <span>Pangala (Tanggaruru)</span>
+            <span>Basir Abdullah (L. Batu)</span>
+            <span>Hasanuddin (Tanggaruru)</span>
+            <span>Yasir AB (Latali)</span>
+            <span>Sali Kalimu</span>
+            <span>Ir. Irwan Amir (Pasampang)</span>
+            <span>Saleh Kalimu (Larui)</span>
+            <span>Bustam Palemmai</span>
+            <span>Samsidar (Mandes Tanggaruru)</span>
+            <span>Namri (Imam Desa Tanggaruru)</span>
+            <span>Ramang (Loka)</span>
+            <span>Sekdes Tanggaruru</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SHARE ========== -->
+    <section id="share" class="section share-section">
+      <div class="container">
+        <div class="share-content aos" data-aos="zoom-in">
+          <div class="share-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </div>
+          <h3 class="share-title">Bagikan Undangan</h3>
+          <p class="share-desc">Klik tombol di bawah untuk mengirim undangan via WhatsApp</p>
+          <a id="btn-share-wa" href="#" target="_blank" class="btn-gold btn-share">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span>Kirim via WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer id="footer" class="section footer-section">
+      <div class="container">
+        <div class="footer-content aos" data-aos="zoom-in">
+          <div class="ornament-icon">&#10047;</div>
+          <p class="footer-thanks">Terima kasih atas doa dan restunya</p>
+          <div class="footer-couple">
+            <span class="name-bride">Sarina</span>
+            <span class="name-amp">&</span>
+            <span class="name-groom">Yakman</span>
+          </div>
+          <p class="footer-closing">Kedua Mempelai</p>
+          <div class="ornament-divider small">
+            <span></span><span class="divider-diamond">&#9830;</span><span></span>
+          </div>
+          <p class="footer-wassalam">Wassalamu'alaikum Warahmatullahi Wabarakaatuh</p>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ==================== BACK TO TOP ==================== -->
+  <button id="btn-back-to-top" class="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <!-- ==================== YOUTUBE MUSIC ==================== -->
+  <div id="yt-music-player" style="position:fixed;bottom:-9999px;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;"></div>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

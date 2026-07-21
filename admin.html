@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Undangan Pernikahan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--gold:#C8A95B;--gold-dark:#a88a3a;--cream:#F8F6F1;--white:#fff;--black:#1a1a1a;--gray:#999;--gray-dark:#555;--green:#25D366;--green-dark:#1ebe57}
+    body{font-family:'Poppins',sans-serif;background:var(--cream);min-height:100vh;color:var(--black)}
+
+    /* LOGIN */
+    .login-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#1a1a1a,#2c2c2c);display:flex;align-items:center;justify-content:center;z-index:9999}
+    .login-overlay.hidden{display:none}
+    .login-box{background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border:1px solid rgba(200,169,91,0.2);border-radius:16px;padding:40px 32px;width:90%;max-width:380px;text-align:center}
+    .login-box .ornament{font-size:2rem;color:var(--gold);margin-bottom:8px}
+    .login-box h2{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:500;margin-bottom:4px}
+    .login-box p{font-size:0.8rem;color:var(--gray);margin-bottom:24px}
+    .login-box input{width:100%;padding:12px 16px;border:1px solid #ddd;border-radius:10px;font-size:0.9rem;font-family:'Poppins',sans-serif;outline:none;margin-bottom:12px;transition:0.3s}
+    .login-box input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,169,91,0.15)}
+    .login-box .error{color:#e74c3c;font-size:0.8rem;margin-bottom:12px;display:none}
+    .login-box button{width:100%;padding:12px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--white);border:none;border-radius:10px;font-size:0.9rem;font-weight:500;cursor:pointer;transition:0.3s}
+    .login-box button:hover{box-shadow:0 4px 16px rgba(200,169,91,0.4)}
+
+    /* ADMIN PANEL */
+    .admin{display:none;max-width:600px;margin:0 auto;padding:24px}
+    .admin.active{display:block}
+    .admin-header{text-align:center;padding:24px 0 16px}
+    .admin-header h1{font-family:'Great Vibes',cursive;font-size:2rem;color:var(--gold);margin-bottom:4px}
+    .admin-header p{font-size:0.8rem;color:var(--gray)}
+
+    /* Form */
+    .card{background:var(--white);border-radius:14px;padding:24px;margin-bottom:16px;border:1px solid rgba(200,169,91,0.1)}
+    .card h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;margin-bottom:16px}
+    .form-row{display:flex;gap:8px}
+    .form-row input{flex:1;padding:10px 14px;border:1px solid #ddd;border-radius:8px;font-size:0.85rem;font-family:'Poppins',sans-serif;outline:none;transition:0.3s}
+    .form-row input:focus{border-color:var(--gold)}
+    .form-row button{padding:10px 20px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--white);border:none;border-radius:8px;font-size:0.85rem;font-weight:500;cursor:pointer;white-space:nowrap;transition:0.3s}
+    .form-row button:hover{box-shadow:0 2px 10px rgba(200,169,91,0.4)}
+    .form-row button.btn-green{background:linear-gradient(135deg,var(--green),var(--green-dark))}
+    .form-row button.btn-green:hover{box-shadow:0 2px 10px rgba(37,211,102,0.4)}
+
+    /* Guest List */
+    .guest-list{max-height:400px;overflow-y:auto}
+    .guest-item{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid #f0f0f0;gap:8px}
+    .guest-item:last-child{border-bottom:none}
+    .guest-item .name{font-size:0.85rem;font-weight:500;flex:1;min-width:0}
+    .guest-item .name span{display:block;font-size:0.7rem;color:var(--gray);font-weight:400;word-break:break-all}
+    .guest-actions{display:flex;gap:4px;flex-shrink:0}
+    .guest-actions button{width:32px;height:32px;border-radius:8px;border:1px solid #eee;background:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:0.2s;font-size:0.85rem}
+    .guest-actions button:hover{background:var(--cream)}
+    .guest-actions button.copy-link:hover{border-color:var(--green);color:var(--green)}
+    .guest-actions button.send-wa:hover{border-color:var(--green);color:var(--green)}
+    .guest-actions button.delete:hover{border-color:#e74c3c;color:#e74c3c}
+    .empty{text-align:center;padding:30px;color:var(--gray);font-size:0.85rem;font-style:italic}
+
+    /* Bulk */
+    .bulk-area{width:100%;min-height:80px;padding:10px 14px;border:1px solid #ddd;border-radius:8px;font-size:0.85rem;font-family:'Poppins',sans-serif;outline:none;resize:vertical;margin-bottom:12px}
+    .bulk-area:focus{border-color:var(--gold)}
+    .bulk-hint{font-size:0.7rem;color:var(--gray);margin-bottom:12px}
+
+    /* Stats */
+    .stats{display:flex;gap:8px;margin-bottom:16px}
+    .stat-card{flex:1;background:var(--white);border-radius:10px;padding:14px;text-align:center;border:1px solid rgba(200,169,91,0.1)}
+    .stat-card .num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold)}
+    .stat-card .label{font-size:0.65rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px}
+
+    /* Toast */
+    .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#333;color:var(--white);padding:10px 20px;border-radius:8px;font-size:0.8rem;z-index:9999;opacity:0;transition:opacity 0.3s;pointer-events:none}
+    .toast.show{opacity:1}
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-box">
+      <div class="ornament">&#10053;</div>
+      <h2>Admin Panel</h2>
+      <p>Undangan Pernikahan Sarina & Yakman</p>
+      <input type="password" id="loginPassword" placeholder="Masukkan password" autofocus>
+      <p class="error" id="loginError">Password salah!</p>
+      <button id="btnLogin">Masuk</button>
+    </div>
+  </div>
+
+  <!-- ADMIN -->
+  <div class="admin" id="adminPanel">
+    <div class="admin-header">
+      <h1>Sarina & Yakman</h1>
+      <p>Kelola daftar tamu undangan</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat-card">
+        <div class="num" id="totalGuest">0</div>
+        <div class="label">Total Tamu</div>
+      </div>
+      <div class="stat-card">
+        <div class="num" id="totalSent">0</div>
+        <div class="label">Terkirim</div>
+      </div>
+    </div>
+
+    <!-- Add Single -->
+    <div class="card">
+      <h3>Tambah Tamu</h3>
+      <div class="form-row">
+        <input type="text" id="guestName" placeholder="Nama tamu">
+        <button id="btnAddGuest">Tambah</button>
+      </div>
+    </div>
+
+    <!-- Bulk Add -->
+    <div class="card">
+      <h3>Tambah Banyak Sekaligus</h3>
+      <textarea class="bulk-area" id="bulkNames" placeholder="Masukkan nama, satu per baris:&#10;Budi Santoso&#10;Siti Aminah&#10;Ahmad Hidayat"></textarea>
+      <p class="bulk-hint">Satu nama per baris. Klik "Tambah Semua" untuk menambah sekaligus.</p>
+      <div class="form-row">
+        <button id="btnBulkAdd" style="width:100%">Tambah Semua</button>
+      </div>
+    </div>
+
+    <!-- Guest List -->
+    <div class="card">
+      <h3>Daftar Tamu</h3>
+      <div class="guest-list" id="guestList">
+        <p class="empty">Belum ada tamu.</p>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="card">
+      <h3>Aksi</h3>
+      <div class="form-row">
+        <button class="btn-green" id="btnSendAll" style="width:100%">Kirim Semua via WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    (function(){
+      'use strict';
+
+      // ===== PASSWORD =====
+      var CORRECT_PASSWORD = 'sarina100826';
+      var GUEST_KEY = 'wedding_guests';
+      var SENT_KEY = 'wedding_sent';
+
+      var $loginOverlay = document.getElementById('loginOverlay');
+      var $loginPassword = document.getElementById('loginPassword');
+      var $loginError = document.getElementById('loginError');
+      var $btnLogin = document.getElementById('btnLogin');
+      var $adminPanel = document.getElementById('adminPanel');
+      var $guestName = document.getElementById('guestName');
+      var $btnAddGuest = document.getElementById('btnAddGuest');
+      var $bulkNames = document.getElementById('bulkNames');
+      var $btnBulkAdd = document.getElementById('btnBulkAdd');
+      var $guestList = document.getElementById('guestList');
+      var $totalGuest = document.getElementById('totalGuest');
+      var $totalSent = document.getElementById('totalSent');
+      var $btnSendAll = document.getElementById('btnSendAll');
+      var $toast = document.getElementById('toast');
+
+      // Check if already logged in
+      if (sessionStorage.getItem('admin_auth') === '1') {
+        showAdmin();
+      }
+
+      // Login
+      $btnLogin.addEventListener('click', doLogin);
+      $loginPassword.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') doLogin();
+      });
+
+      function doLogin() {
+        if ($loginPassword.value === CORRECT_PASSWORD) {
+          sessionStorage.setItem('admin_auth', '1');
+          $loginError.style.display = 'none';
+          showAdmin();
+        } else {
+          $loginError.style.display = 'block';
+          $loginPassword.value = '';
+          $loginPassword.focus();
+        }
+      }
+
+      function showAdmin() {
+        $loginOverlay.classList.add('hidden');
+        $adminPanel.classList.add('active');
+        renderGuests();
+      }
+
+      // ===== GUEST DATA =====
+      function getGuests() {
+        try { return JSON.parse(localStorage.getItem(GUEST_KEY)) || []; }
+        catch(e) { return []; }
+      }
+
+      function saveGuests(list) {
+        localStorage.setItem(GUEST_KEY, JSON.stringify(list));
+      }
+
+      function getSent() {
+        try { return JSON.parse(localStorage.getItem(SENT_KEY)) || {}; }
+        catch(e) { return {}; }
+      }
+
+      function saveSent(obj) {
+        localStorage.setItem(SENT_KEY, JSON.stringify(obj));
+      }
+
+      function getBaseUrl() {
+        return window.location.origin + window.location.pathname.replace('admin.html', '').replace(/\/$/, '/');
+      }
+
+      function generateLink(name) {
+        return getBaseUrl() + 'invite.html?to=' + encodeURIComponent(name);
+      }
+
+      function showToast(msg) {
+        $toast.textContent = msg;
+        $toast.classList.add('show');
+        setTimeout(function(){ $toast.classList.remove('show'); }, 2000);
+      }
+
+      // ===== ADD GUEST =====
+      function addGuest(name) {
+        name = name.trim();
+        if (!name) return false;
+        var guests = getGuests();
+        // Check duplicate
+        for (var i = 0; i < guests.length; i++) {
+          if (guests[i].toLowerCase() === name.toLowerCase()) return false;
+        }
+        guests.push(name);
+        saveGuests(guests);
+        return true;
+      }
+
+      $btnAddGuest.addEventListener('click', function() {
+        var name = $guestName.value.trim();
+        if (!name) return;
+        if (addGuest(name)) {
+          showToast('Tamu ditambahkan!');
+          $guestName.value = '';
+          renderGuests();
+        } else {
+          showToast('Nama sudah ada atau tidak valid');
+        }
+      });
+
+      $guestName.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') $btnAddGuest.click();
+      });
+
+      $btnBulkAdd.addEventListener('click', function() {
+        var lines = $bulkNames.value.split('\n');
+        var added = 0;
+        lines.forEach(function(line) {
+          if (addGuest(line)) added++;
+        });
+        if (added > 0) {
+          showToast(added + ' tamu ditambahkan!');
+          $bulkNames.value = '';
+          renderGuests();
+        } else {
+          showToast('Tidak ada tamu baru');
+        }
+      });
+
+      // ===== RENDER =====
+      function renderGuests() {
+        var guests = getGuests();
+        var sent = getSent();
+        var sentCount = 0;
+
+        $totalGuest.textContent = guests.length;
+
+        if (guests.length === 0) {
+          $guestList.innerHTML = '<p class="empty">Belum ada tamu.</p>';
+          $totalSent.textContent = '0';
+          return;
+        }
+
+        var html = '';
+        guests.forEach(function(name, i) {
+          if (sent[name]) sentCount++;
+          var link = generateLink(name);
+          html += '<div class="guest-item">' +
+            '<div class="name">' + escapeHtml(name) +
+            (sent[name] ? ' <span style="color:var(--green)">Terkirim</span>' : '') +
+            '</div>' +
+            '<div class="guest-actions">' +
+            '<button class="copy-link" title="Salin Link" onclick="copyLink(\'' + encodeURIComponent(name) + '\')">&#128279;</button>' +
+            '<button class="send-wa" title="Kirim WA" onclick="sendWA(\'' + encodeURIComponent(name) + '\')">&#128172;</button>' +
+            '<button class="delete" title="Hapus" onclick="deleteGuest(' + i + ')">&#128465;</button>' +
+            '</div></div>';
+        });
+
+        $guestList.innerHTML = html;
+        $totalSent.textContent = sentCount;
+      }
+
+      function escapeHtml(text) {
+        var d = document.createElement('div');
+        d.appendChild(document.createTextNode(text));
+        return d.innerHTML;
+      }
+
+      // ===== ACTIONS =====
+      window.copyLink = function(encodedName) {
+        var name = decodeURIComponent(encodedName);
+        var link = generateLink(name);
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(link).then(function() {
+            showToast('Link disalin!');
+          });
+        } else {
+          var ta = document.createElement('textarea');
+          ta.value = link;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          showToast('Link disalin!');
+        }
+      };
+
+      window.sendWA = function(encodedName) {
+        var name = decodeURIComponent(encodedName);
+        var link = generateLink(name);
+        var msg = encodeURIComponent(
+          'Assalamu\'alaikum Warahmatullahi Wabarakaatuh\n\n' +
+          'Kepada Yth.\n' + name + '\n\n' +
+          'Kami mengundang Anda untuk menghadiri acara pernikahan kami:\n\n' +
+          '💒 Sarina Abdullah, S.T & Yakman Suma\n\n' +
+          '📅 Senin, 10 Agustus 2026\n' +
+          '🕙 Akad: 10.00 WITA | Resepsi: 19.00 WITA\n' +
+          '📍 Dusun II, Desa Tanggaruru\n\n' +
+          'Berikut undangan digital untuk Anda:\n' + link
+        );
+        window.open('https://wa.me/?text=' + msg, '_blank');
+
+        // Mark as sent
+        var sent = getSent();
+        sent[name] = true;
+        saveSent(sent);
+        renderGuests();
+      };
+
+      window.deleteGuest = function(index) {
+        var guests = getGuests();
+        var name = guests[index];
+        if (!confirm('Hapus "' + name + '"?')) return;
+        guests.splice(index, 1);
+        saveGuests(guests);
+        // Also remove from sent
+        var sent = getSent();
+        delete sent[name];
+        saveSent(sent);
+        renderGuests();
+        showToast('Tamu dihapus');
+      };
+
+      $btnSendAll.addEventListener('click', function() {
+        var guests = getGuests();
+        if (guests.length === 0) { showToast('Tidak ada tamu'); return; }
+        if (!confirm('Kirim undangan ke ' + guests.length + ' tamu via WhatsApp?')) return;
+        guests.forEach(function(name) {
+          var link = generateLink(name);
+          var msg = encodeURIComponent(
+            'Assalamu\'alaikum Warahmatullahi Wabarakaatuh\n\n' +
+            'Kepada Yth.\n' + name + '\n\n' +
+            'Kami mengundang Anda untuk menghadiri acara pernikahan kami:\n\n' +
+            '💒 Sarina Abdullah, S.T & Yakman Suma\n\n' +
+            '📅 Senin, 10 Agustus 2026\n' +
+            '🕙 Akad: 10.00 WITA | Resepsi: 19.00 WITA\n' +
+            '📍 Dusun II, Desa Tanggaruru\n\n' +
+            'Berikut undangan digital untuk Anda:\n' + link
+          );
+          window.open('https://wa.me/?text=' + msg, '_blank');
+          var sent = getSent();
+          sent[name] = true;
+          saveSent(sent);
+        });
+        renderGuests();
+        showToast('Semua undangan terkirim!');
+      });
+
+    })();
+  </script>
+</body>
+</html>

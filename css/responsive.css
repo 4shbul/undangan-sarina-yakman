@@ -1,0 +1,408 @@
+/* ===========================================
+   RESPONSIVE STYLESHEET
+   Elegant Luxury Modern Wedding Invitation
+   =========================================== */
+
+/* ========== TABLET (max-width: 768px) ========== */
+@media (max-width: 768px) {
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 36px;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  /* Opening */
+  .opening-name {
+    font-size: 2.8rem;
+  }
+
+  .opening-name .name-amp {
+    font-size: 1.6rem;
+  }
+
+  /* Hero */
+  .hero-names {
+    font-size: 3rem;
+  }
+
+  .hero-names .name-amp {
+    font-size: 2rem;
+  }
+
+  .countdown-number {
+    font-size: 2.2rem;
+  }
+
+  .countdown-item {
+    min-width: 60px;
+  }
+
+  /* Couple */
+  .couple-wrapper {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .couple-center {
+    order: -1;
+  }
+
+  .couple-photo-frame {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* Events */
+  .event-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  /* Gallery */
+  .gallery-grid {
+    column-count: 2;
+    column-gap: 8px;
+  }
+
+  .gallery-item {
+    margin-bottom: 8px;
+  }
+
+  /* Gift */
+  .gift-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .gift-number {
+    font-size: 1.1rem;
+  }
+
+  /* Family */
+  .family-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  /* Invited List */
+  .invited-list {
+    gap: 6px 16px;
+  }
+
+  /* Music Control */
+  #music-control {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  /* Back to Top */
+  .back-to-top {
+    left: 16px;
+    bottom: 16px;
+  }
+}
+
+/* ========== MOBILE (max-width: 480px) ========== */
+@media (max-width: 480px) {
+
+  html {
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+    margin-bottom: 28px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Opening */
+  .opening-name {
+    font-size: 2.2rem;
+  }
+
+  .opening-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+  }
+
+  .opening-date {
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+  }
+
+  .btn-gold {
+    padding: 12px 28px;
+    font-size: 0.85rem;
+  }
+
+  /* Hero */
+  .hero-names {
+    font-size: 2.4rem;
+  }
+
+  .hero-names .name-amp {
+    font-size: 1.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+  }
+
+  .hero-date-big {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .countdown-container {
+    gap: 12px;
+  }
+
+  .countdown-number {
+    font-size: 1.8rem;
+  }
+
+  .countdown-item {
+    min-width: 50px;
+  }
+
+  .countdown-label {
+    font-size: 0.6rem;
+  }
+
+  /* Salam */
+  .salam-arabic {
+    font-size: 1.4rem;
+  }
+
+  .salam-text {
+    font-size: 1.2rem;
+  }
+
+  .salam-body {
+    font-size: 0.88rem;
+  }
+
+  /* Couple */
+  .couple-photo-frame {
+    width: 120px;
+    height: 120px;
+  }
+
+  .couple-name {
+    font-size: 1.8rem;
+  }
+
+  .couple-fullname {
+    font-size: 0.9rem;
+  }
+
+  .couple-parents {
+    font-size: 0.8rem;
+  }
+
+  /* Events */
+  .glass-card {
+    padding: 28px 20px;
+  }
+
+  .event-title {
+    font-size: 1.3rem;
+  }
+
+  .event-details p {
+    font-size: 0.85rem;
+  }
+
+  /* Gallery */
+  .gallery-grid {
+    column-count: 2;
+    column-gap: 6px;
+  }
+
+  .gallery-item {
+    margin-bottom: 6px;
+  }
+
+  /* Lightbox */
+  .lightbox-content {
+    max-width: 95vw;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    font-size: 1.4rem;
+    padding: 8px;
+  }
+
+  .lightbox-prev { left: 8px; }
+  .lightbox-next { right: 8px; }
+
+  /* Gift */
+  .gift-number {
+    font-size: 1rem;
+  }
+
+  .gift-card {
+    padding: 28px 20px;
+  }
+
+  /* Doa */
+  .doa-text {
+    font-size: 1.1rem;
+  }
+
+  /* Guest Book */
+  .guestbook-form {
+    padding: 24px 20px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+
+  .guestbook-item {
+    padding: 16px;
+  }
+
+  .guestbook-name {
+    font-size: 0.85rem;
+  }
+
+  .guestbook-message {
+    font-size: 0.82rem;
+  }
+
+  /* Family */
+  .family-card {
+    padding: 28px 20px;
+  }
+
+  .family-title {
+    font-size: 1.05rem;
+  }
+
+  .invited-title {
+    font-size: 1.1rem;
+  }
+
+  .invited-list span {
+    font-size: 0.82rem;
+  }
+
+  /* Footer */
+  .footer-section {
+    padding: 48px 0;
+  }
+
+  .footer-thanks {
+    font-size: 1.2rem;
+  }
+
+  .footer-couple {
+    font-size: 2rem;
+  }
+
+  .footer-wassalam {
+    font-size: 0.85rem;
+  }
+}
+
+/* ========== SMALL MOBILE (max-width: 360px) ========== */
+@media (max-width: 360px) {
+
+  .opening-name {
+    font-size: 1.9rem;
+  }
+
+  .hero-names {
+    font-size: 2rem;
+  }
+
+  .countdown-number {
+    font-size: 1.5rem;
+  }
+
+  .countdown-item {
+    min-width: 42px;
+  }
+
+  .gallery-grid {
+    column-count: 2;
+    column-gap: 6px;
+  }
+
+  .btn-gold {
+    padding: 10px 22px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ========== LARGE DESKTOP (min-width: 1200px) ========== */
+@media (min-width: 1200px) {
+
+  .container {
+    max-width: 1000px;
+  }
+
+  .hero-names {
+    font-size: 5rem;
+  }
+
+  .hero-names .name-amp {
+    font-size: 3rem;
+  }
+
+  .countdown-number {
+    font-size: 3.5rem;
+  }
+
+  .couple-photo-frame {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* ========== LANDSCAPE MOBILE ========== */
+@media (max-height: 500px) and (orientation: landscape) {
+
+  .hero-section {
+    min-height: auto;
+    padding: 40px 0;
+  }
+
+  .hero-content {
+    padding: 20px;
+  }
+
+  .hero-names {
+    font-size: 2.5rem;
+  }
+
+  #opening-screen {
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+
+  .opening-name {
+    font-size: 2.2rem;
+  }
+
+  .countdown-container {
+    margin-top: 16px;
+  }
+}
