@@ -74,10 +74,12 @@
     ytApiLoading = true;
     window.onYouTubeIframeAPIReady = function () {
       ytApiLoaded = true;
+      var vid = document.getElementById('yt-music-player');
+      var ytId = (vid && vid.dataset.videoId) || 'mpineoNP23I';
       ytPlayer = new YT.Player('yt-music-player', {
-        videoId: 'mpineoNP23I',
+        videoId: ytId,
         playerVars: {
-          autoplay: 0, loop: 1, playlist: 'mpineoNP23I',
+          autoplay: 0, loop: 1, playlist: ytId,
           controls: 0, disablekb: 1, fs: 0, iv_load_policy: 3,
           modestbranding: 1, rel: 0, showinfo: 0, start: 0
         },
