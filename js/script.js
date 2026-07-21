@@ -52,54 +52,57 @@
     $loadingScreen.classList.add('hidden');
     setTimeout(function () {
       $loadingScreen.style.display = 'none';
-    }, 500);
+    }, 300);
   }
 
   window.addEventListener('load', function () {
-    setTimeout(hideLoadingScreen, 800);
+    setTimeout(hideLoadingScreen, 200);
   });
 
   /* ========================================
-     YOUTUBE MUSIC PLAYER
+     YOUTUBE MUSIC PLAYER (lazy-load)
      ======================================== */
   var ytPlayer = null;
+  var ytApiLoaded = false;
+  var ytApiLoading = false;
   var musicStarted = false;
   var isPlaying = false;
 
-  // YouTube IFrame API callback
-  window.onYouTubeIframeAPIReady = function () {
-    ytPlayer = new YT.Player('yt-music-player', {
-      videoId: 'mpineoNP23I',
-      playerVars: {
-        autoplay: 0,
-        loop: 1,
-        playlist: 'mpineoNP23I',
-        controls: 0,
-        disablekb: 1,
-        fs: 0,
-        iv_load_policy: 3,
-        modestbranding: 1,
-        rel: 0,
-        showinfo: 0,
-        start: 0
-      },
-      events: {
-        onReady: function () {
-          ytPlayer.setVolume(80);
+  function loadYtApi(callback) {
+    if (ytApiLoaded) { callback(); return; }
+    if (ytApiLoading) { return; }
+    ytApiLoading = true;
+    window.onYouTubeIframeAPIReady = function () {
+      ytApiLoaded = true;
+      ytPlayer = new YT.Player('yt-music-player', {
+        videoId: 'mpineoNP23I',
+        playerVars: {
+          autoplay: 0, loop: 1, playlist: 'mpineoNP23I',
+          controls: 0, disablekb: 1, fs: 0, iv_load_policy: 3,
+          modestbranding: 1, rel: 0, showinfo: 0, start: 0
         },
-        onStateChange: function (e) {
-          if (e.data === YT.PlayerState.ENDED) {
-            ytPlayer.playVideo();
+        events: {
+          onReady: function () { ytPlayer.setVolume(80); callback(); },
+          onStateChange: function (e) {
+            if (e.data === YT.PlayerState.ENDED) { ytPlayer.playVideo(); }
           }
         }
-      }
-    });
-  };
+      });
+    };
+    var s = document.createElement('script');
+    s.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(s);
+  }
 
   function playMusic() {
     if (ytPlayer && ytPlayer.playVideo) {
       ytPlayer.playVideo();
       updateMusicUI(true);
+    } else {
+      loadYtApi(function () {
+        ytPlayer.playVideo();
+        updateMusicUI(true);
+      });
     }
   }
 
@@ -126,7 +129,7 @@
     }
 
     // Trigger AOS for visible elements
-    setTimeout(runAOS, 300);
+    setTimeout(runAOS, 100);
   }
 
   // Prevent scroll when opening screen is visible
