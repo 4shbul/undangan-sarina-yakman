@@ -116,6 +116,31 @@
   /* ========================================
      OPENING SCREEN
      ======================================== */
+  var autoScrollActive = false;
+  var autoScrollRaf = null;
+
+  function startAutoScroll() {
+    autoScrollActive = true;
+    var speed = 2.5; // px per frame
+    function step() {
+      if (!autoScrollActive) return;
+      var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (window.pageYOffset >= maxScroll - 10) { autoScrollActive = false; return; }
+      window.scrollTo(0, window.pageYOffset + speed);
+      autoScrollRaf = requestAnimationFrame(step);
+    }
+    autoScrollRaf = requestAnimationFrame(step);
+  }
+
+  function cancelAutoScroll() {
+    autoScrollActive = false;
+    if (autoScrollRaf) { cancelAnimationFrame(autoScrollRaf); autoScrollRaf = null; }
+  }
+
+  window.addEventListener('wheel', cancelAutoScroll, { passive: true });
+  window.addEventListener('touchmove', cancelAutoScroll, { passive: true });
+  window.addEventListener('mousedown', cancelAutoScroll, { passive: true });
+
   function openInvitation() {
     $openingScreen.classList.add('hidden');
     $mainContent.style.display = 'block';
@@ -130,6 +155,9 @@
 
     // Trigger AOS for visible elements
     setTimeout(runAOS, 100);
+
+    // Auto scroll — smooth continuous
+    startAutoScroll();
   }
 
   // Prevent scroll when opening screen is visible

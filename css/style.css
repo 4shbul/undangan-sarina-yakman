@@ -892,8 +892,9 @@ input, textarea { font-family: inherit; }
 }
 
 .gallery-grid {
-  column-count: 3;
-  column-gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
 .gallery-item {
@@ -901,16 +902,13 @@ input, textarea { font-family: inherit; }
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  break-inside: avoid;
-  margin-bottom: 12px;
   transition: var(--transition);
-  display: inline-block;
-  width: 100%;
 }
 
 .gallery-item img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
   display: block;
   transition: transform 0.5s ease;
 }

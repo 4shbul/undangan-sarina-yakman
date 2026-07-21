@@ -67,12 +67,7 @@
 
   /* Gallery */
   .gallery-grid {
-    column-count: 2;
-    column-gap: 8px;
-  }
-
-  .gallery-item {
-    margin-bottom: 8px;
+    gap: 8px;
   }
 
   /* Gift */
@@ -228,12 +223,7 @@
 
   /* Gallery */
   .gallery-grid {
-    column-count: 2;
-    column-gap: 6px;
-  }
-
-  .gallery-item {
-    margin-bottom: 6px;
+    gap: 6px;
   }
 
   /* Lightbox */
@@ -342,8 +332,7 @@
   }
 
   .gallery-grid {
-    column-count: 2;
-    column-gap: 6px;
+    gap: 6px;
   }
 
   .btn-gold {
