@@ -452,29 +452,6 @@
   }
 
   /* ========================================
-     WHATSAPP SHARE LINK
-     ======================================== */
-  (function () {
-    var btnShare = document.getElementById('btn-share-wa');
-    if (!btnShare) return;
-
-    var baseUrl = window.location.origin + window.location.pathname.replace('index.html', '').replace(/\/$/, '/');
-    var invitationUrl = baseUrl + 'undangan.html';
-    var message = encodeURIComponent(
-      'Assalamu\'alaikum Warahmatullahi Wabarakaatuh\n\n' +
-      'Kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami:\n\n' +
-      'Sarina Abdullah, S.T & Yakman Suma\n\n' +
-      'Senin, 10 Agustus 2026\n' +
-      'Akad: 10.00 WITA | Resepsi: 19.00 WITA\n' +
-      'Dusun II, Desa Tanggaruru\n\n' +
-      'Lihat undangan lengkap di:\n' +
-      invitationUrl
-    );
-
-    btnShare.href = 'https://wa.me/?text=' + message;
-  })();
-
-  /* ========================================
      SMOOTH SCROLL FOR ANCHOR LINKS
      ======================================== */
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
