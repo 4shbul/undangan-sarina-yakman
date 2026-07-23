@@ -1309,6 +1309,23 @@ input, textarea { font-family: inherit; }
   width: 100%;
 }
 
+.invited-divider {
+  border: none;
+  border-top: 1px solid var(--gold);
+  width: 60px;
+  margin: 24px auto;
+  opacity: 0.5;
+}
+
+.invited-subtitle {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gold);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
 /* ========================================
    FOOTER
    ======================================== */
